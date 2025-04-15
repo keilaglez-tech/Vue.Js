@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todos once more</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+
+    <div id="main">  <!--  -->
+        <h2>To Do List Example</h2>
+  
+        <p><input type="text" v-model="newJob" size="30" placeholder="Add New Item"> &nbsp;
+            <button type="button" v-on:click="add_todo">Add Todo Item</button></p>
+        
+        <div v-show="showTable">
+            <table  cellspacing="14">
+                <tr> <th>Done</th> <th>Job</th> </tr>
+                <tr v-for="todo in todoList"> 
+                    <td><input type="checkbox" v-model=todo.done></td><td> {{todo.job}} </td>
+                </tr>
+            </table>
+        
+            <p><button v-on:click="delete_todo">Remove Checked Items</button></p>
+        </div>
+   
+    </div>
+    <!-- @click is shortcut for v-on:click, could key number, keyup.13, enter is an event modifier of keyup -->
+
+    <script src="app.js"></script> 
+    
+</body>   
+</html>
